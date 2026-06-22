@@ -1,4 +1,4 @@
-module sabertodo
+module saberTodoBackend
 
 go 1.26.4
 

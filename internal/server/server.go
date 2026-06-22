@@ -1,9 +1,9 @@
 package server
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"saberTodoBackend/internal/database"
 
-	"my_project/internal/database"
+	"github.com/gofiber/fiber/v2"
 )
 
 type FiberServer struct {
@@ -15,8 +15,7 @@ type FiberServer struct {
 func New() *FiberServer {
 	server := &FiberServer{
 		App: fiber.New(fiber.Config{
-			ServerHeader: "my_project",
-			AppName:      "my_project",
+			AppName: "sabertodo",
 		}),
 
 		db: database.New(),

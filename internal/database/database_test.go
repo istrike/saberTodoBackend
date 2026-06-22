@@ -13,9 +13,9 @@ import (
 
 func mustStartPostgresContainer() (func(context.Context, ...testcontainers.TerminateOption) error, error) {
 	var (
-		dbName = "database"
-		dbPwd  = "password"
-		dbUser = "user"
+		dbName = "sabertodo"
+		dbPwd  = "Hncy@123"
+		dbUser = "root"
 	)
 
 	dbContainer, err := postgres.Run(
