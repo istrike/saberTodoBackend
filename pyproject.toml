@@ -1,0 +1,12 @@
+[project]
+name = "sabertodobackend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django-phonenumber-field[phonenumberslite]>=8.4.0",
+    "djangorestframework>=3.17.1",
+    "mysqlclient>=2.2.8",
+    "pymysql>=1.2.0",
+]

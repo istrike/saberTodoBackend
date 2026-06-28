@@ -22,12 +22,13 @@ services:
   #   networks:
   #     - blueprint
   psql_bp:
-    image: registry.hncy.info/postgres:18.4-bookworm
+    image: registry.hncy.info/postgres:18.4-bookworm-amd64
     restart: unless-stopped
     environment:
       POSTGRES_DB: sabertodo
       POSTGRES_USER: root
       POSTGRES_PASSWORD: Hncy@123qwe
+      PGDATA: /var/lib/postgresql/data
     ports:
       - "5432:5432"
     volumes:
@@ -40,8 +41,26 @@ services:
       start_period: 15s
     networks:
       - blueprint
+  mysql8:
+    image: registry.hncy.info/mysql:8.0.44
+    restart: unless-stopped
+    environment:
+    environment:
+      MYSQL_ROOT_PASSWORD: Hncy@123
+      MYSQL_DATABASE: sabertodo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Hncy@123
+    ports:
+      - "5433:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
 
 volumes:
   psql_volume_bp:
+  mysql_data:
 networks:
   blueprint:
